@@ -3,6 +3,7 @@
 ### Description
 Open a file in a new tab with a random name in a specified location and with the same extension as the current file.
 
+
 ### How to use it
 To be able to create scratch files in vim, just paste this little function inside your `vimrc` and map it to a keybinding of your choice.
 
@@ -22,6 +23,8 @@ nnoremap <leader>s :call OpenScratchFile()<CR>
 
 The function above will open a file in a new tab with a random name in the location specified by the `g:scratch_location` variable and with the same extension as the current file.
 
+### Disclaimer
+Given the method of generating random strings, this may only work on unix-based systems.
 
 ### Inspiration
 Inspired by IntelliJ's scratch file feature.
