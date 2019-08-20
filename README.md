@@ -9,10 +9,12 @@ To be able to create scratch files in vim, just paste this little function insid
 
 ```vim
 let g:scratch_location="/tmp/"
-func! OpenScratchFile()
-  execute join(["tabe ", substitute(g:scratch_location, "\/$", "", ""), "/scratch-", substitute(system("cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1"), "\n", "", ""), len(expand("%:e")) == 0 ? "" : ".", expand("%:e")], "")
-endfunc
 
+func! OpenScratchFile()
+  let file_name=substitute(system("cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1"), "\n", "", "")
+  let extension=expand("%:e")
+  execute join(["tabe ", substitute(g:scratch_location, "\/$", "", ""), "/scratch-", file_name, len(ext) == 0 ? "" : ".", ext], "")
+endfunc
 ```
 
 Mapping example:
